@@ -38,7 +38,6 @@ values."
      ;; ----------------------------------------------------------------
      ivy
      auto-completion
-     better-defaults
      emacs-lisp
      git
      markdown
@@ -66,7 +65,9 @@ values."
                                     fcitx
                                     find-by-pinyin-dired
                                     ace-pinyin
+                                    counsel-projectile
                                     org-projectile
+                                    helm-make
                                     ;; pangu-spacing
                                     ;; magit-gh-pulls
                                     ;; magit-gitflow
@@ -118,7 +119,6 @@ values."
                                     ;; clean-aindent-mode
                                     ;; helm-c-yasnippet
                                     ;; ace-jump-helm-line
-                                    ;; helm-make
                                     ;; magithub
                                     ;; helm-themes
                                     ;; helm-swoop
@@ -127,7 +127,7 @@ values."
                                     ;; ido-vertical-mode
                                     ;; flx-ido
                                     ;; company-quickhelp
-                                    ;; counsel-projectile
+                                    
                                     ;; window-purpose
                                     ;; ivy-purpose
                                     ;; helm-purpose
@@ -397,6 +397,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   ;;-----------------------------------------------------------------------
+  ;; 将C-r更改为向后删除
+  ;;-----------------------------------------------------------------------
+  (global-unset-key "")
+  (global-set-key (kbd "C-r") 'hungry-delete-backward)
+  ;;-----------------------------------------------------------------------
   ;; 定制前缀
   ;;----------------------------------------------------------------------- 
   (spacemacs/declare-prefix "o" "oh-my-key")
@@ -404,6 +409,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;高亮BEGIN_SRC里面的代码,插入这个宏的快捷键是：<s回车
   ;;----------------------------------------------------------------------- 
   (setq org-src-fontify-natively t)
+  ;;-----------------------------------------------------------------------
+  ;; 强制垂直分屏 
+  ;;----------------------------------------------------------------------- 
+  (setq split-width-threshold 120)
 
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after

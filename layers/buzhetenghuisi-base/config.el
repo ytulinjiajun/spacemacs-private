@@ -27,3 +27,14 @@
                          ("8zsch" "#ifndef _XX_H
 #define _XX_H
 #endif")))
+
+
+(defvar better-defaults-move-to-beginning-of-code-first t
+  "when t, first stroke of C-a will move the cursor to the beginning of code.
+When nil, first stroke will go to the beginning of line.
+Subsequent strokes will toggle between beginning of line and beginning of code.")
+
+(defvar better-defaults-move-to-end-of-code-first t
+  "when t, first stroke of C-e will move the cursor to the end of code (before comments).
+When nil, first stroke will go to the end of line (after comments).
+Subsequent strokes will toggle between end of line and end of code.")

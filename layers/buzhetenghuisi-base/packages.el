@@ -34,7 +34,7 @@
     company
     youdao-dictionary
     helm-ag
-    mwin 
+    mwim 
     )
   "The list of Lisp packages required by the buzhetenghuisi-base layer.
 
@@ -82,8 +82,21 @@ Each entry is either:
     (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)    
     ))
 
-(defun buzhetenghuisi-base/pre-init-mwin ()
-  )
+(defun buzhetenghuisi-base/init-mwim ()
+  (use-package mwim
+    :defer t
+    :init
+    (progn
+      (if better-defaults-move-to-beginning-of-code-first
+          (global-set-key (kbd "C-a") 'mwim-beginning-of-code-or-line)
+        (global-set-key (kbd "C-a") 'mwim-beginning-of-line-or-code))
+
+      (define-key evil-normal-state-map (kbd "C-e") nil)
+      (define-key evil-normal-state-map (kbd "C-e") 'mwim-end-of-code-or-line)
+
+      (if better-defaults-move-to-end-of-code-first
+          (global-set-key (kbd "C-e") 'mwim-end-of-code-or-line)
+        (global-set-key (kbd "C-e") 'mwim-end-of-line-or-code)))))
 
 (defun spacemacs-base/init-abbrev ()
   (spacemacs|hide-lighter abbrev-mode))
