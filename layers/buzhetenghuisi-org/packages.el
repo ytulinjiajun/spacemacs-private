@@ -50,7 +50,7 @@
       (setq-default org-agenda-files (quote ("~/.my-agenda")))
 
       ;;全屏显示agenda
-      (setq-default org-agenda-window-setup (quote current-window))
+      ;; (setq-default org-agenda-window-setup (quote current-window))
 
       ;; 优先级范围和默认(A-D)任务的优先级
       (setq org-highest-priority ?A) (setq org-lowest-priority  ?C) (setq org-default-priority ?C)
