@@ -118,6 +118,8 @@
 
       (setq blogs-cmake-active (expand-file-name "blogs-cmake-active.org" org-agenda-dir))
 
+      (setq blogs-cmake-to-stm32-active (expand-file-name "blogs-cmake-to-stm32-active.org" org-agenda-dir))
+
       (setq org-agenda-files (list org-agenda-dir))
 
       ;; 配置模板
@@ -134,52 +136,55 @@
 
               ("b" "Blog					写博客")
               ("ba" "blogs-linux				有关linux的博客" entry (file+headline blogs-linux-active "blogs-linux-active")
-               "* WAITING Theme:%^{} :@Linux:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Linux:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bb" "blogs-emacs				有关emacs的博客" entry (file+headline blogs-emacs-active "blogs-emacs-active")
-               "* WAITING Theme:%^{} :@Emacs:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Emacs:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bc" "blogs-makefile            有关makefile的博客" entry (file+headline blogs-makefile-active "blogs-makefile-active")
-               "* WAITING Theme:%^{} :@Makefile:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Makefile:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bd" "blogs-git				    有关git的博客" entry (file+headline blogs-git-active "blogs-git-active")
-               "* WAITING Theme:%^{} :@Git:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Git:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("be" "blogs-stm32f4     		有关stm32f4的博客" entry (file+headline blogs-stm32f4-active "blogs-stm32f4-active")
-               "* WAITING Theme:%^{} :@Stm32f4:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Stm32f4:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bf" "blogs-stm32f7     		有关stm32f7的博客" entry (file+headline blogs-stm32f7-active "blogs-stm32f7-active")
-               "* WAITING Theme:%^{} :@Stm32f7:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Stm32f7:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bg" "blogs-s3c2440     		有关s3c2440的博客" entry (file+headline blogs-s3c2440-active "blogs-s3c2440-active")
-               "* WAITING Theme:%^{} :@S3c2440:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@S3c2440:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bh" "blogs-raspberry-pi		有关树莓派的博客" entry (file+headline blogs-raspberry-pi-active "blogs-raspberry-pi-active")
-               "* WAITING Theme:%^{} :@RaPi:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@RaPi:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bi" "blogs-C    				有关C的博客" entry (file+headline blogs-c-active "blogs-c-active")
-               "* WAITING Theme:%^{} :@C:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@C:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bj" "blogs-Cpp    				有关C++的博客" entry (file+headline blogs-cpp-active "blogs-cpp-active")
-               "* WAITING Theme:%^{} :@Cpp:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Cpp:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bk" "blogs-mysql    			有关mysql的博客" entry (file+headline blogs-mysql-active "blogs-mysql-active")
-               "* WAITING Theme:%^{} :@Mysql:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Mysql:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bl" "blogs-qt    				有关QT的博客" entry (file+headline blogs-qt-active "blogs-qt-active")
-               "* WAITING Theme:%^{} :@Qt:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Qt:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bm" "blogs-tcp-ip    			有关TCP-IP的博客" entry (file+headline blogs-tcp-ip-active "blogs-tcp-ip-active")
-               "* WAITING Theme:%^{} :@TCP:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@TCP:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bn" "blogs-python     		    有关python的博客" entry (file+headline blogs-python-active "blogs-python-active")
-               "* WAITING Theme:%^{} :@Python:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Python:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bo" "blogs-linux-kernel     	有关linux-kernel的博客" entry (file+headline blogs-linux-kernel "blogs-linux-kernel")
-               "* WAITING Theme:%^{} :@Kernel:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Kernel:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ("bp" "blogs-cmake     		    有关cmake的博客" entry (file+headline blogs-cmake-active "blogs-cmake-active")
-               "* WAITING Theme:%^{} :@Cmake:\n %?\n\nBlog creation time:%U %i\n"
+               "* WAITTING Theme:%^{} :@Cmake:\n %?\n\nBlog creation time:%U %i\n"
+               :empty-lines 0)
+              ("br" "blogs-cmake-to-stm32     		    有关cmake开发stm32的博客" entry (file+headline blogs-cmake-to-stm32-active "blogs-cmake-to-stm32-active")
+               "* WAITTING Theme:%^{} :@CmakeStm32:\n %?\n\nBlog creation time:%U %i\n"
                :empty-lines 0)
               ))
 
@@ -216,8 +221,9 @@
               ("xl" "-------@Mysql------------" tags "+@Mysql")
               ("xm" "-------@TCP--------------" tags "+@TCP")
               ("xn" "-------@Python-----------" tags "+@Python")
-              ("xo" "-------@Kernel-----------" tags  "+@Kernel")
+              ("xo" "-------@Kernel-----------" tags "+@Kernel")
               ("xp" "-------@Cmake------------" tags "+@Cmake")
+              ("xr" "-------@Cmake-to-Stm32---" tags "+@CmakeStm32")
               ))
 
       ;; 归档
@@ -257,5 +263,7 @@
                       ("blogs-python-active.org" :level . 1)
                       ("blogs-python-arch-part1.org" :level . 1)
                       ("blogs-linux-kernel.org" :level . 1)
-                      ("blogs-cmake-active.org" :level . 1))))
+                      ("blogs-cmake-active.org" :level . 1)
+                      ("blogs-cmake-to-stm32-active.org" :level . 1)
+                      )))
       )))
