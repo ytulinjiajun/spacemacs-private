@@ -57,7 +57,7 @@
 
       ;; 定义任务状态
       (setq org-todo-keywords
-            '((sequence "TODO(t!)" "WAITTING(w@/!)" "|" "ABORT(a@/!)" "DONE(d@/!)")))
+            '((sequence "TODO(t)" "WAITTING(w)" "|" "ABORT(a)" "DONE(d)")))
 
       ;;设置TODO关键词的外观
       (setq org-todo-keyword-faces

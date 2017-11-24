@@ -64,78 +64,17 @@ values."
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
-                                    chinese-pyim
-                                    chinese-wbim
-                                    fcitx
-                                    find-by-pinyin-dired
-                                    ace-pinyin
-                                    counsel-projectile
-                                    org-projectile
-                                    helm-make
-                                    ;; pangu-spacing
-                                    ;; magit-gh-pulls
-                                    ;; magit-gitflow
-                                    ;; evil-mc
-                                    ;; realgud
-                                    ;; evil-args
-                                    ;; evil-ediff
-                                    ;; evil-exchange
-                                    ;; evil-unimpaired
-                                    ;; evil-indent-plus
-                                    ;; volatile-highlights
+                                    chinese-pyim chinese-wbim fcitx find-by-pinyin-dired ace-pinyin counsel-projectile org-projectile helm-make pangu-spacing
+                                    magit-gh-pulls magit-gitflow evil-mc realgud evil-args evil-ediff evil-exchange evil-unimpaired evil-indent-plus 
+                                    volatile-highlights holy-mode skewer-mode rainbow-delimiters highlight-indentation vi-tilde-fringe eyebrowse smooth-scrolling
+                                    org-repo-todo org-download org-timer livid-mode git-gutter git-gutter-fringe evil-escape leuven-theme gh-md evil-lisp-state
+                                    spray lorem-ipsum symon ac-ispell ace-jump-mode auto-complete auto-dictionary clang-format define-word google-translate
+                                    disaster epic fancy-battery org-present orgit orglue spacemacs-theme helm-flyspell flyspell-correct-helm clean-aindent-mode
+                                    helm-c-yasnippet ace-jump-helm-line magithub helm-themes helm-swoop helm-spacemacs-help smeargle ido-vertical-mode flx-ido
+                                    company-quickhelp window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+                                    ;; org-bullets
                                     ;; smartparens
                                     ;; spaceline
-                                    ;; holy-mode
-                                    ;; skewer-mode
-                                    ;; rainbow-delimiters
-                                    ;; highlight-indentation
-                                    ;; vi-tilde-fringe
-                                    ;; eyebrowse
-                                    ;; ;; org-bullets
-                                    ;; smooth-scrolling
-                                    ;; org-repo-todo
-                                    ;; org-download
-                                    ;; org-timer
-                                    ;; livid-mode
-                                    ;; git-gutter
-                                    ;; git-gutter-fringe
-                                    ;; evil-escape
-                                    ;; leuven-theme
-                                    ;; gh-md
-                                    ;; evil-lisp-state
-                                    ;; spray
-                                    ;; lorem-ipsum symon
-                                    ;; ac-ispell
-                                    ;; ace-jump-mode
-                                    ;; auto-complete
-                                    ;; auto-dictionary
-                                    ;; clang-format
-                                    ;; define-word google-translate
-                                    ;; disaster
-                                    ;; epic
-                                    ;; fancy-battery
-                                    ;; org-present
-                                    ;; orgit
-                                    ;; orglue
-                                    ;; spacemacs-theme
-                                    ;; helm-flyspell
-                                    ;; flyspell-correct-helm
-                                    ;; clean-aindent-mode
-                                    ;; helm-c-yasnippet
-                                    ;; ace-jump-helm-line
-                                    ;; magithub
-                                    ;; helm-themes
-                                    ;; helm-swoop
-                                    ;; helm-spacemacs-help
-                                    ;; smeargle
-                                    ;; ido-vertical-mode
-                                    ;; flx-ido
-                                    ;; company-quickhelp
-                                    
-                                    ;; window-purpose
-                                    ;; ivy-purpose
-                                    ;; helm-purpose
-                                    ;;spacemacs-purpose-popwin
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -391,10 +330,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
  )
 
 (defun dotspacemacs/user-config ()
-  ;;-----------------------------------------------------------------------
-  ;; 饥饿删除
-  ;;----------------------------------------------------------------------- 
-  (global-hungry-delete-mode t)
   ;;------------------------------------------------------------------
   ;; 该代码块可以将 insert state map 中的快捷键清空，使其可以回退到
   ;; Emacs State 中，这样我们之前的 Emacs State 里面定义的
@@ -402,36 +337,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;------------------------------------------------------------------ 
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
-  ;;-----------------------------------------------------------------------
-  ;; 将C-r更改为向后删除
-  ;;-----------------------------------------------------------------------
-  (global-unset-key "")
-  (global-set-key (kbd "C-r") 'hungry-delete-backward)
-  ;;-----------------------------------------------------------------------
-  ;; 定制前缀
-  ;;----------------------------------------------------------------------- 
-  (spacemacs/declare-prefix "o" "oh-my-key")
-  ;;-----------------------------------------------------------------------
-  ;;高亮BEGIN_SRC里面的代码,插入这个宏的快捷键是：<s回车
-  ;;----------------------------------------------------------------------- 
-  (setq org-src-fontify-natively t)
-  ;;-----------------------------------------------------------------------
-  ;; 强制垂直分屏 
-  ;;----------------------------------------------------------------------- 
-  (setq split-width-threshold 120)
-  ;;-----------------------------------------------------------------------
-  ;; 配置ispell 
-  ;;----------------------------------------------------------------------- 
+
   ;; use apsell as ispell backend, if not install aspell, sudo apt-get install aspell    
   (setq-default ispell-program-name "aspell")  
   ;; use American English as ispell default dictionary  
   (ispell-change-dictionary "american" t)  
-  "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
-layers configuration.
-This is the place where most of your configurations should be done. Unless it is
-explicitly specified that a variable should be set before a package is loaded,
-you should place your code here."
   )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
