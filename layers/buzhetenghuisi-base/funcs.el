@@ -39,3 +39,19 @@
     (org-insert-todo-subheading t)
     (delete-backward-char 4 nil)
     ))
+
+;;----------------------------------------------------------------------
+;; 增强occur-mode,使得在当前单词的位置按下M-s o时，可以自动抓取光标所在的
+;; 单词，而不必手动输入
+;;----------------------------------------------------------------------
+(defun occur-dwim ()
+  (interactive)
+  (push (if (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
+  (call-interactively 'occur))
