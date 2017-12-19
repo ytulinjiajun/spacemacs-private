@@ -34,7 +34,7 @@
     company
     youdao-dictionary
     helm-ag
-    mwim 
+    mwim
     )
   "The list of Lisp packages required by the buzhetenghuisi-base layer.
 
@@ -78,9 +78,9 @@ Each entry is either:
       (define-key company-active-map (kbd "C-p") #'company-select-previous))))
 
 (defun buzhetenghuisi-base/post-init-youdao-dictionary ()
-  (progn
     (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)    
-    ))
+    )
+
 
 (defun buzhetenghuisi-base/init-mwim ()
   (use-package mwim
@@ -97,6 +97,7 @@ Each entry is either:
       (if better-defaults-move-to-end-of-code-first
           (global-set-key (kbd "C-e") 'mwim-end-of-code-or-line)
         (global-set-key (kbd "C-e") 'mwim-end-of-line-or-code)))))
+
 
 (defun spacemacs-base/init-abbrev ()
   (spacemacs|hide-lighter abbrev-mode))
@@ -409,4 +410,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
         (kbd "RET") 'helm-ag-mode-jump-other-window
         (kbd "gr") 'helm-ag--update-save-results
         (kbd "q") 'quit-window))))
+
+
 

@@ -10,7 +10,6 @@
 ;;; License: GPLv3
 
 (configuration-layer/declare-layers '(
-                                      buzhetenghuisi-base
-                                      buzhetenghuisi-org
-                                      buzhetenghuisi-programming
+                                      org
                                       ))
+

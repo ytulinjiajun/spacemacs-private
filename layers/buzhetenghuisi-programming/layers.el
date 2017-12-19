@@ -10,7 +10,8 @@
 ;;; License: GPLv3
 
 (configuration-layer/declare-layers '(
-                                      buzhetenghuisi-base
-                                      buzhetenghuisi-org
-                                      buzhetenghuisi-programming
+                                      (spell-checking :variables spell-checking-enable-by-default nil)
+                                      (c-c++ :variables
+                                             c-c++-default-mode-for-headers 'c-mode) 
+                                      ycmd 
                                       ))
