@@ -41,7 +41,7 @@ values."
      ivy
      auto-completion
      emacs-lisp
-     git
+     ;; git
      markdown
      (shell :variables
              shell-default-height 30

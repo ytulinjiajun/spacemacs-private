@@ -33,6 +33,7 @@
   '(
     counsel-gtags
     ycmd
+    company-ycmd
     )
   )
 
@@ -46,16 +47,33 @@
       (add-hook 'c++-mode-hook 'counsel-gtags-mode)
 
       (with-eval-after-load 'counsel-gtags
-        (define-key counsel-gtags-mode-map (kbd "M-g d") 'counsel-gtags-find-definition)
-        (define-key counsel-gtags-mode-map (kbd "M-g r") 'counsel-gtags-find-reference)
-        (define-key counsel-gtags-mode-map (kbd "M-g s") 'counsel-gtags-find-symbol)
-        (define-key counsel-gtags-mode-map (kbd "M-g b") 'counsel-gtags-go-backward))
+        (define-key counsel-gtags-mode-map (kbd "M-g D") 'counsel-gtags-find-definition)
+        (define-key counsel-gtags-mode-map (kbd "M-g R") 'counsel-gtags-find-reference)
+        (define-key counsel-gtags-mode-map (kbd "M-g B") 'counsel-gtags-go-backward)
+        (define-key counsel-gtags-mode-map (kbd "M-g F") 'counsel-gtags-go-forward))
       )))
 
 (defun buzhetenghuisi-programming/post-init-ycmd ()
-  (setq ycmd-server-command (list "python" (file-truename "~/.spacemacs.d/layers/local/ycmd/ycmd/__main__.py")))
+  (setq ycmd-request-message-level -1)
+  ;; (add-hook 'after-init-hook #'global-ycmd-mode)
+  (add-hook 'c++-mode-hook 'ycmd-mode)
+  (setq ycmd-server-command (list "python" (file-truename "~/.spacemacs.d/layers/buzhetenghuisi-programming/local/ycmd/ycmd/__main__.py")))
   (set-variable 'ycmd-global-config "~/workspace/project/stm32/.ycm_extra_conf.py")
   ;; (set-variable 'ycmd-extra-conf-whitelist '("~/.spacemacs.d/layers/buzhetenghuisi-programming/local/ycmd-extra-conf-list/*"))
   (setq ycmd-force-semantic-completion t)
+  (require 'ycmd-next-error)
+
+  (with-eval-after-load 'ycmd
+    (define-key ycmd-mode-map (kbd "M-g d") 'ycmd-goto-definition)
+    (define-key ycmd-mode-map (kbd "M-g r") 'ycmd-goto-references)
+    (define-key ycmd-mode-map (kbd "M-g i") 'ycmd-goto-include)
+    (define-key ycmd-mode-map (kbd "M-g b") 'evil-jump-backward)
+    (define-key ycmd-mode-map (kbd "M-g f") 'evil-jump-forward)
+    )
+  )
+
+(defun buzhetenghuisi-programming/post-init-company-ycmd ()
+  (add-hook 'ycmd-mode-hook #'ycmd-setup-completion-at-point-function)
+  (company-ycmd-setup)
   )
 ;;; packages.el ends here

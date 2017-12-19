@@ -5,6 +5,7 @@
 (spacemacs/declare-prefix "op" "project")
 (spacemacs/declare-prefix "oc" "configuration")
 (spacemacs/declare-prefix "oo" "agenda")
+(spacemacs/declare-prefix "oj" "my-jump")
 ;;-----------------------------------------------------------------------
 ;; 快捷键
 ;;----------------------------------------------------------------------- 
@@ -51,3 +52,18 @@
 (global-unset-key "\363o")
 (global-set-key (kbd "M-s o") 'occur-dwim)
 (global-set-key (kbd "M-s e") 'iedit-mode)
+
+;;-----------------------------------------------------------------------
+;; ycmd 的跳转
+;;-----------------------------------------------------------------------
+(spacemacs/set-leader-keys "gg" 'ycmd-goto)
+(spacemacs/set-leader-keys "gd" 'ycmd-goto-definition)
+(spacemacs/set-leader-keys "gD" 'ycmd-goto-declaration)
+(spacemacs/set-leader-keys "gr" 'ycmd-goto-references)
+(spacemacs/set-leader-keys "gi" 'ycmd-goto-include)
+(spacemacs/set-leader-keys "gI" 'ycmd-goto-implementation)
+(spacemacs/set-leader-keys "gt" 'ycmd-goto-type)
+(spacemacs/set-leader-keys "ge" 'ycmd-next-error)
+(spacemacs/set-leader-keys "gs" 'ycmd-show-debug-info)
+(spacemacs/set-leader-keys "gb" 'evil-jump-backward)
+(spacemacs/set-leader-keys "gf" 'evil-jump-forward)
