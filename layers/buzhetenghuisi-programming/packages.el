@@ -28,52 +28,59 @@
 ;;   `buzhetenghuisi-programming/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
-
 (defconst buzhetenghuisi-programming-packages
-  '(
-    counsel-gtags
-    ycmd
-    company-ycmd
+  '(cmake-ide
+    rtags
+    flycheck-rtags
+    ivy-rtags
     )
   )
 
-;;; packages.el ends here
-(defun buzhetenghuisi-programming/init-counsel-gtags ()
-  (use-package counsel-gtags
-    :defer t
-    :init
-    (progn
-      (add-hook 'c-mode-hook 'counsel-gtags-mode)
-      (add-hook 'c++-mode-hook 'counsel-gtags-mode)
+;; packages.el ends here
+(defun buzhetenghuisi-programming/init-cmake-ide ()
+  (use-package cmake-ide
+    :config
+    (cmake-ide-setup)))
 
-      (with-eval-after-load 'counsel-gtags
-        (define-key counsel-gtags-mode-map (kbd "M-g D") 'counsel-gtags-find-definition)
-        (define-key counsel-gtags-mode-map (kbd "M-g R") 'counsel-gtags-find-reference)
-        (define-key counsel-gtags-mode-map (kbd "M-g B") 'counsel-gtags-go-backward)
-        (define-key counsel-gtags-mode-map (kbd "M-g F") 'counsel-gtags-go-forward))
-      )))
+(defun buzhetenghuisi-programming/init-rtags ()
+  (use-package rtags
+    :config
+    ;; Enable rtags-diagnostics
+    (setq rtags-autostart-diagnostics t)
 
-(defun buzhetenghuisi-programming/post-init-ycmd ()
-  (setq ycmd-request-message-level -1)
-  ;; (add-hook 'after-init-hook #'global-ycmd-mode)
-  (add-hook 'c++-mode-hook 'ycmd-mode)
-  (setq ycmd-server-command (list "python" (file-truename "~/.spacemacs.d/layers/buzhetenghuisi-programming/local/ycmd/ycmd/__main__.py")))
-  (set-variable 'ycmd-global-config "~/workspace/project/stm32/.ycm_extra_conf.py")
-  ;; (set-variable 'ycmd-extra-conf-whitelist '("~/.spacemacs.d/layers/buzhetenghuisi-programming/local/ycmd-extra-conf-list/*"))
-  (setq ycmd-force-semantic-completion t)
-  (require 'ycmd-next-error)
+    ;; 在缓冲区中启动一个异步进程，以便每当文件被重新编制索引时从clang接收警告/错误。它集成flymake突出显示警告和错误的代码
+    (rtags-diagnostics)
 
-  (with-eval-after-load 'ycmd
-    (define-key ycmd-mode-map (kbd "M-g d") 'ycmd-goto-definition)
-    (define-key ycmd-mode-map (kbd "M-g r") 'ycmd-goto-references)
-    (define-key ycmd-mode-map (kbd "M-g i") 'ycmd-goto-include)
-    (define-key ycmd-mode-map (kbd "M-g b") 'evil-jump-backward)
-    (define-key ycmd-mode-map (kbd "M-g f") 'evil-jump-forward)
-    )
-  )
+    (require 'company)
+    (global-company-mode)
 
-(defun buzhetenghuisi-programming/post-init-company-ycmd ()
-  (add-hook 'ycmd-mode-hook #'ycmd-setup-completion-at-point-function)
-  (company-ycmd-setup)
-  )
+    ;; Enable completions in RTags
+    (setq rtags-completions-enabled t)
+
+    ;; Add company-rtags to company-backends
+    (push 'company-rtags company-backends)
+
+    (add-hook 'c-mode-hook 'rtags-start-process-unless-running)
+    (add-hook 'c++-mode-hook 'rtags-start-process-unless-running)
+    (add-hook 'objc-mode-hook 'rtags-start-process-unless-running)
+
+	  (add-hook 'c-mode-hook #'buzhetenghuisi-flycheck-rtags-setup)
+    (add-hook 'c++-mode-hook #'buzhetenghuisi-flycheck-rtags-setup)
+    (add-hook 'objc-mode-hook #'buzhetenghuisi-flycheck-rtags-setup)
+
+    (add-hook 'c-mode-hook 'flycheck-mode)
+    (add-hook 'c++-mode-hook 'flycheck-mode)
+    (add-hook 'objc-mode-hook 'flycheck-mode)
+    ))
+
+(defun buzhetenghuisi-programming/init-flycheck-rtags ()
+  (use-package flycheck-rtags
+    :ensure rtags
+    ))
+
+(defun buzhetenghuisi-programming/init-ivy-rtags ()
+  (use-package ivy-rtags
+    :config
+    (setq rtags-display-result-backend 'ivy)
+    ))
 ;;; packages.el ends here
