@@ -2,7 +2,7 @@
 ;; 定制前缀
 ;;----------------------------------------------------------------------- 
 (spacemacs/declare-prefix "o" "oh-my-key")
-(spacemacs/declare-prefix "op" "project")
+(spacemacs/declare-prefix "op" "projects")
 (spacemacs/declare-prefix "oc" "configuration")
 (spacemacs/declare-prefix "oo" "agenda")
 (spacemacs/declare-prefix "oj" "my-jump")
@@ -13,10 +13,12 @@
 
 (spacemacs/set-leader-keys "oce" 'config-emacs)
 
-(spacemacs/set-leader-keys "ops" 'stm32)
+(spacemacs/set-leader-keys "op" 'my-projects)
 
 (spacemacs/set-leader-keys "ooa" 'org-agenda)
 (spacemacs/set-leader-keys "ooc" 'org-capture)
+
+(spacemacs/set-leader-keys "tt" 'toggle-truncate-lines)
 
 (global-unset-key "\254")
 (global-set-key (kbd "M-,") 'improve-org-insert-todo-heading)

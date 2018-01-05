@@ -31,11 +31,24 @@
 
 (defconst buzhetenghuisi-org-packages
   '(
+    cnfonts
     org
     org-pomodoro
     )
-)
+  )
+
 ;;; packages.el ends here
+(defun buzhetenghuisi-org/init-cnfonts ()
+  (use-package cnfonts)
+  :init
+  (progn
+    ;; 让 cnfonts 随着 Emacs 自动生效。
+    (cnfonts-enable)
+    ;; 让 spacemacs mode-line 中的 Unicode 图标正确显示。
+    (cnfonts-set-spacemacs-fallback-fonts)
+    )
+  )
+
 (defun buzhetenghuisi-org/post-init-org-pomodoro ()
   (setq-default org-pomodoro-length 40)
   )
@@ -110,3 +123,5 @@
               ;; )
             ))
       )))
+
+

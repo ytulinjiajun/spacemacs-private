@@ -394,7 +394,8 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
         ;; current project scope
         "/"   'spacemacs/helm-project-smart-do-search
         "*"   'spacemacs/helm-project-smart-do-search-region-or-symbol
-        "sp"  'spacemacs/helm-project-smart-do-search
+        ;; "sp"  'spacemacs/helm-project-smart-do-search
+        "sp"  'helm-do-ag-project-root
         "sP"  'spacemacs/helm-project-smart-do-search-region-or-symbol
         "sap" 'spacemacs/helm-project-do-ag
         "saP" 'spacemacs/helm-project-do-ag-region-or-symbol

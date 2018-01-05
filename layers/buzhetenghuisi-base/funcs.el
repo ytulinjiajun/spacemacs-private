@@ -51,11 +51,11 @@
 
 (defun config-emacs ()
   (interactive)
-  (find-file "~/.spacemacs.d/layers/buzhetenghuisi-base/"))
+  (find-file "~/.spacemacs.d/layers"))
 
-(defun stm32 ()
+(defun my-projects ()
   (interactive)
-  (find-file "~/workspace/project/stm32"))
+  (find-file "~/workspace/project"))
 
 ;;-----------------------------------------------------------------------
 ;; 改善 org-mode中 org-insert-todo-heading的行为
