@@ -6,6 +6,14 @@
 #
 #-------------------------------------------------------------------------------------------------")
                                             ("8zspy" "#!/usr/bin/python")
+                                            ("8zsshell" "#!/bin/sh
+# Program:
+# 	This program show \"Hello World!\" in your screen.
+# History:
+# 2018/01/01	linjiajun		First release
+export PATH=$PATH:$PWD
+
+exit 0")
                                             ("8zsch" "#ifndef _XX_H
 #define _XX_H
 #endif")

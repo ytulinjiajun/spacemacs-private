@@ -29,7 +29,11 @@
 
 ;;; Code:
 (defconst buzhetenghuisi-programming-packages
-  '(cmake-ide
+  '(
+    ;; (cmake-ide :location (recipe
+    ;;                       :fetcher github
+    ;;                       :repo "dlyr/cmake-ide"))
+    cmake-ide
     rtags
     flycheck-rtags
     ivy-rtags
@@ -40,7 +44,8 @@
 (defun buzhetenghuisi-programming/init-cmake-ide ()
   (use-package cmake-ide
     :config
-    (cmake-ide-setup)))
+    (cmake-ide-setup)
+    ))
 
 (defun buzhetenghuisi-programming/init-rtags ()
   (use-package rtags
