@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo apt install -y clang libclang-dev cmake pkg-config bash-completion lua5.3
+cmake -H. -B_builds
+cd _builds
+make -j8
+sudo make install 

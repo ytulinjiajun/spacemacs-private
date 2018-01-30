@@ -63,7 +63,7 @@ exit 0")
 
 (defun my-projects ()
   (interactive)
-  (find-file "~/workspace/project"))
+  (find-file "~/workspace/projects"))
 
 ;;-----------------------------------------------------------------------
 ;; 改善 org-mode中 org-insert-todo-heading的行为

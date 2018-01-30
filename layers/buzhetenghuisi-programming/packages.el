@@ -45,6 +45,11 @@
   (use-package cmake-ide
     :config
     (cmake-ide-setup)
+    ;; only works if I hard-code these variables.
+    (setq cmake-ide-build-dir "~/workspace/projects/DoST/_builds/Release")
+    (setq cmake-ide-project-dir "~/workspace/projects/DoST")
+
+    (add-hook 'c++-mode-hook #'cmake-ide/hook)
     ))
 
 (defun buzhetenghuisi-programming/init-rtags ()
